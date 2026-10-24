@@ -1,0 +1,48 @@
+:root{
+  --bg:#0d1117; --panel:#161b22; --panel2:#1c2230; --line:#2d333b;
+  --green:#3fb950; --blue:#58a6ff; --gray:#8b949e; --gold:#f0b429;
+  --px:2px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:#e6edf3;font-family:"Microsoft YaHei","Segoe UI",monospace,sans-serif;min-height:100vh}
+.pixel-bg{position:fixed;inset:0;z-index:-1;opacity:.06;background-image:url("data:image/svg+xml,%3Csvg width='32' height='32' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='32' height='32' fill='%233fb950' fill-opacity='0.12'/%3E%3Crect x='16' y='16' width='16' height='16' fill='%2358a6ff' fill-opacity='0.12'/%3E%3C/svg%3E")}
+.topbar{display:flex;justify-content:space-between;align-items:center;padding:12px 20px;background:var(--panel);border-bottom:var(--px) solid var(--line);position:sticky;top:0;z-index:10}
+.brand{display:flex;align-items:baseline;gap:10px}
+.brand-icon{font-size:22px}
+.brand-name{font-weight:900;letter-spacing:1px;color:var(--green);text-shadow:0 0 10px rgba(63,185,80,.5)}
+.brand-sub{color:var(--gray);font-size:12px}
+.conn{font-size:12px;padding:4px 12px;border:var(--px) solid var(--line);border-radius:4px;background:var(--panel2)}
+.conn.ok{color:var(--green);border-color:var(--green)}
+.conn.bad{color:#f85149;border-color:#f85149}
+.layout{display:grid;grid-template-columns:280px 1fr 340px;gap:14px;padding:14px;max-width:1280px;margin:0 auto}
+.panel{background:var(--panel);border:var(--px) solid var(--line);border-radius:6px;padding:14px}
+.panel-title{font-weight:900;color:var(--gold);margin-bottom:12px;letter-spacing:1px;border-left:4px solid var(--gold);padding-left:8px}
+.mc-input{width:100%;padding:8px 10px;margin:6px 0;background:#0b0f14;color:#e6edf3;border:var(--px) solid var(--line);border-radius:4px;font-size:14px}
+.mc-input:focus{outline:none;border-color:var(--blue)}
+.seg{display:flex;gap:6px;margin-bottom:6px}
+.seg-btn{flex:1;padding:8px;background:var(--panel2);color:var(--gray);border:var(--px) solid var(--line);border-radius:4px;cursor:pointer;font-size:13px}
+.seg-btn.active{color:#0d1117;background:var(--green);border-color:var(--green);font-weight:700}
+.mc-btn{display:inline-block;padding:10px 18px;margin:6px 4px 0 0;border:none;border-radius:4px;cursor:pointer;font-weight:700;font-size:14px;color:#0d1117;font-family:inherit}
+.mc-btn.green{background:var(--green)} .mc-btn.blue{background:var(--blue)} .mc-btn.gray{background:#3a414d;color:#e6edf3}
+.mc-btn.small{padding:6px 12px;font-size:13px}
+.mc-btn:hover{filter:brightness(1.12)}
+.mc-btn:disabled{opacity:.5;cursor:not-allowed}
+.state{font-size:12px;color:var(--gray);margin-top:8px;min-height:16px;word-break:break-all}
+.state.ok{color:var(--green)} .state.bad{color:#f85149}
+.hint{font-size:12px;color:var(--gray);line-height:1.6}
+.hint code{background:var(--panel2);padding:1px 5px;border-radius:3px;color:var(--gold)}
+.toolbar{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.ver-list{max-height:520px;overflow-y:auto;display:flex;flex-direction:column;gap:6px}
+.ver-item{display:flex;justify-content:space-between;align-items:center;background:var(--panel2);border:var(--px) solid var(--line);border-radius:4px;padding:8px 10px;gap:8px}
+.ver-item .vid{font-weight:700;font-size:13px}
+.ver-item .vtype{font-size:11px;color:var(--gray);border:1px solid var(--line);padding:1px 6px;border-radius:3px}
+.ver-item.release .vtype{color:var(--green);border-color:var(--green)}
+.ver-item .ops{display:flex;gap:6px;flex-wrap:wrap}
+.tabs{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:10px}
+.tab{padding:6px 10px;background:var(--panel2);color:var(--gray);border:var(--px) solid var(--line);border-radius:4px;cursor:pointer;font-size:13px}
+.tab.active{color:var(--gold);border-color:var(--gold)}
+.tab-body{min-height:180px}
+.skin-preview{width:80px;height:80px;border:var(--px) solid var(--line);border-radius:4px;background:#0b0f14;display:flex;align-items:center;justify-content:center;color:var(--gray);font-size:11px;margin-bottom:10px;overflow:hidden}
+.skin-preview img{width:100%;height:100%;object-fit:contain;image-rendering:pixelated}
+.foot{text-align:center;color:var(--gray);font-size:12px;padding:16px}
+@media(max-width:960px){.layout{grid-template-columns:1fr}.ver-list{max-height:300px}}

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WEN MC Launcher</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="pixel-bg"></div>
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-icon">⛏</span>
+    <span class="brand-name">WEN MC LAUNCHER</span>
+    <span class="brand-sub">我的世界启动器</span>
+  </div>
+  <div class="conn" id="connBadge">连接中…</div>
+</header>
+
+<main class="layout">
+  <!-- 左侧：登录 + 版本 -->
+  <section class="panel">
+    <div class="panel-title">玩家登录</div>
+    <div class="login-box">
+      <div class="seg">
+        <button class="seg-btn active" data-mode="offline">离线模式</button>
+        <button class="seg-btn" data-mode="online">正版模式</button>
+      </div>
+      <input id="inpUser" class="mc-input" maxlength="16" placeholder="玩家名（字母/数字/下划线）" autocomplete="off">
+      <div id="onlineFields" style="display:none">
+        <input id="inpToken" class="mc-input" placeholder="正版 Access Token">
+        <input id="inpUuid" class="mc-input" placeholder="正版 UUID">
+      </div>
+      <button id="btnLogin" class="mc-btn green">登录</button>
+      <div id="loginState" class="state"></div>
+    </div>
+  </section>
+
+  <!-- 中间：版本下载与启动 -->
+  <section class="panel">
+    <div class="panel-title">版本管理</div>
+    <div class="toolbar">
+      <button id="btnRefresh" class="mc-btn gray small">刷新版本</button>
+      <span id="verCount" class="hint"></span>
+    </div>
+    <div id="verList" class="ver-list"></div>
+  </section>
+
+  <!-- 右侧：资源包 / 皮肤 -->
+  <section class="panel">
+    <div class="panel-title">资源中心</div>
+    <div class="tabs">
+      <button class="tab active" data-tab="skin">皮肤</button>
+      <button class="tab" data-tab="mods">模组</button>
+      <button class="tab" data-tab="shaders">光影</button>
+      <button class="tab" data-tab="texture">材质包</button>
+      <button class="tab" data-tab="resource">资源包</button>
+    </div>
+
+    <div id="tab-skin" class="tab-body">
+      <div class="skin-preview" id="skinPreview">暂无皮肤</div>
+      <button id="btnSkin" class="mc-btn blue small">选择 PNG 皮肤上传</button>
+      <input type="file" id="inpSkin" accept="image/png" style="display:none">
+      <div class="hint">皮肤保存到 <code>.Minecraft/CustomSkinLoader/skins/&lt;玩家名&gt;.png</code></div>
+      <div id="skinState" class="state"></div>
+    </div>
+
+    <div id="tab-mods" class="tab-body" style="display:none">
+      <div class="hint">模组下载：选择版本后点「下载模组」→ 文件落盘到 <code>.Minecraft/mods/</code></div>
+      <button id="btnModHelp" class="mc-btn gray small">打开模组下载源（Modrinth）</button>
+      <div id="modState" class="state"></div>
+    </div>
+
+    <div id="tab-shaders" class="tab-body" style="display:none">
+      <div class="hint">光影包：下载后放入 <code>.Minecraft/shaderpacks/</code></div>
+      <button id="btnShaderHelp" class="mc-btn gray small">打开光影下载源</button>
+      <div id="shaderState" class="state"></div>
+    </div>
+
+    <div id="tab-texture" class="tab-body" style="display:none">
+      <div class="hint">材质包：下载后放入 <code>.Minecraft/resourcepacks/</code></div>
+      <button id="btnTexHelp" class="mc-btn gray small">打开材质包下载源</button>
+      <div id="texState" class="state"></div>
+    </div>
+
+    <div id="tab-resource" class="tab-body" style="display:none">
+      <div class="hint">资源包与材质包同理，放入 <code>.Minecraft/resourcepacks/</code></div>
+      <button id="btnResHelp" class="mc-btn gray small">打开资源包下载源</button>
+      <div id="resState" class="state"></div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">WEN Studio · 版本下载走官方/BMCLAPI 镜像，302 直链，不占用本站流量</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

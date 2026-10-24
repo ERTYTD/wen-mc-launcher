@@ -1,0 +1,27 @@
+{
+  "port": 3000,
+  "dataDir": "./data",
+  "publicDir": "./public",
+  "skinDir": "./data/skins",
+  "maxSkinBytes": 8388608,
+  "mirror": "bmclapi",
+  "mirrors": {
+    "bmclapi": {
+      "base": "https://bmclapi2.bangbang93.com",
+      "manifest": "/mc/game/version_manifest_v2.json"
+    },
+    "mojang": {
+      "base": "https://piston-meta.mojang.com",
+      "manifest": "/mc/game/version_manifest_v2.json"
+    }
+  },
+  "versionJsonPath": "/version/{id}/json",
+  "clientJarPath": "/version/{id}/client",
+  "serverJarPath": "/version/{id}/server",
+  "mavenPath": "/maven/",
+  "assetsPath": "/assets/",
+  "launcherMetaBase": "https://launchermeta.mojang.com",
+  "launcherFilesBase": "https://launcher.mojang.com",
+  "librariesNetBase": "https://libraries.minecraft.net",
+  "cacheTtlMs": 600000
+}

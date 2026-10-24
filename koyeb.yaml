@@ -1,0 +1,22 @@
+name: wen-mc-launcher
+regions:
+  - sin
+service:
+  type: web
+  instance_type: nano
+  ports:
+    - port: 3000
+      protocol: http
+  env:
+    - key: NODE_ENV
+      value: production
+  health_checks:
+    - port: 3000
+      protocol: http
+      path: /api/ping
+  deep_sleep_delay: 0
+  light_sleep_delay: 0
+  build:
+    buildpack: buildpack
+    build_command: npm install --production --no-audit --no-fund
+    run_command: node server.js
